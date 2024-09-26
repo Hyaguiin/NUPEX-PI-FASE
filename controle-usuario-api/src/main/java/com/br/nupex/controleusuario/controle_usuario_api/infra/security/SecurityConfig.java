@@ -26,9 +26,15 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()   
+                .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                .requestMatchers("/h2-console/**").permitAll()  
+                .requestMatchers(HttpMethod.GET, "/api/teachers/**").authenticated() // Acesso somente autenticado para GET
+                .requestMatchers(HttpMethod.POST, "/api/teachers/**").hasRole("ADMIN") // Somente ADMIN pode criar
+                .requestMatchers(HttpMethod.PUT, "/api/teachers/**").hasRole("ADMIN") // Somente ADMIN pode atualizar
+                .requestMatchers(HttpMethod.DELETE, "/api/teachers/**").hasRole("ADMIN") // Somente ADMIN pode deletar
                 .anyRequest().authenticated())
+            .headers(headers -> headers.frameOptions().sameOrigin()) 
             .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
