@@ -1,12 +1,20 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router'; 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [],
+  imports: [RouterModule], 
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrls: ['./register.component.scss'] 
 })
 export class RegisterComponent {
+  constructor(private router: Router) {}
 
+  onSubmit() {
+    
+
+    this.router.navigate(['/login']); 
+  }
 }

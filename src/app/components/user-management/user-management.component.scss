@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    font-family: "Overpass", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden; /* Remove a rolagem da página */
+}
+
+
+
+.ubuntu-bold {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.logoFacisa {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+}
+
+.container-name {
+    display: flex;
+    margin-right: 300px;
+    width: 100%;
+    height: 50px;
+    margin-top: -9px;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+}
+
+.traco {
+    display: flex;
+    height: 7px;
+    margin-top: 5px;
+    background-color: rgb(0, 94, 255);
+    width: 100%;
+    border-bottom: 10px solid #3870C1;
+}
+
+.projeto-cor{
+    color: #3870C1;
+
+
+}
+.Projetos{
+    margin-left: 160px;
+    margin-top: 50px;
+    font-family: Raleway;
+font-size: 30px;
+font-weight: 600;
+line-height: 35.22px;
+
+
+}
+
+.aces {
+    margin-left: auto; 
+}
+
+.cor {
+    color: #3870C1;
+    font-weight: bold;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 24px;
+    color: #2e3a59;
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: "Ubuntu", sans-serif;
+    color: #2e3a59;
+}
+.painel {
+    display: grid;
+    margin-top: -89px;
+    border: solid #183474 1px;
+    background-color: #183474;
+    border-radius: 10px;
+    width: 6%; 
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    height: 93vh;
+    transition: width 0.3s ease; /* Transição suave */
+    position: relative; /* Para posicionar elementos dentro */
+}
+
+.painel:hover {
+    width: 15%; /* Largura expandida ao passar o mouse */
+}
+
+.painel-content {
+    margin-left: 15%;
+   margin-top: 110px;
+    
+
+}
+.painel-content-perfil{
+    margin-top: -50px;
+    display: flex;
+    height: 210px;
+}
+.painel-content-logout{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    height: 210px;
+}
+
+.perfil {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    margin-top: 70px;
+    margin-left: 20px;
+}
+
+#foto {
+    margin: 5px;
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.nome {
+    display: none; /* Oculta o nome por padrão */
+    color: white; /* Cor do texto */
+    margin-left: 10px; /* Espaço entre a foto e o nome */
+}
+
+.painel:hover .nome {
+    display: block; /* Exibe o nome ao passar o mouse */
+    transition: opacity 0.3s ease; /* Transição suave */
+}
+.dashboard-icon {
+    display: grid;
+    margin-top: 25px;
+    margin-left: 10px;
+    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas */
+    grid-template-rows: repeat(2, 1fr); /* Cria duas linhas */
+    gap: 5px; /* Espaço entre os blocos */
+    width: 35px; /* Largura total do ícone */
+    height: 35px; /* Altura total do ícone */
+}
+
+.dashboard-content {
+    display: flex; /* Usar flexbox para alinhar itens */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.dashboard-name {
+    display: none; /* Oculta o nome por padrão */
+    color: white; /* Cor do texto */
+    margin-left: 70px; /* Espaço entre o ícone e o nome */
+    margin-top: -25px;
+   
+}
+
+.painel:hover .dashboard-name,
+.painel-content:hover .dashboard-name {
+    display: block; /* Exibe o nome ao passar o mouse */
+    transition: opacity 0.3s ease; /* Transição suave */
+}
+
+
+.block {
+    border: solid 3px white;
+    border-radius: 4px; /* Cantos arredondados */
+    width: 100%; /* Largura do bloco */
+    height: 100%; /* Altura do bloco */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.dashboard-icon:hover .block {
+    background-color: #0056b3; 
+}
+
+
+/*PARTE DO USUARIO GERENCIAMENTO!! */
+.user-icon {
+    display: flex; /* Usar flexbox para alinhar ícones e nomes */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 5px;
+    margin-top: -50px; 
+    font-size: 16px; /* Ajuste o tamanho do ícone aqui */
+  
+}
+
+.user-name {
+    display: none; /* Oculta o nome por padrão */
+    color: white; /* Cor do texto */
+    margin-left: 15px; /* Espaço entre o ícone e o nome */
+    margin-top: -100px;
+}
+
+.painel:hover .user-name {
+    display: block; /* Exibe o nome ao passar o mouse */
+    transition: opacity 0.3s ease; /* Transição suave */
+}
+
+.user-icon i {
+    color: white; 
+    font-size: 20px; 
+    margin-left: 15px;
+    margin-top: -100px;
+}
+.gerenciamentoProjeto{
+    margin-top: -90px;
+}
+.Submeter-Projeto{
+    margin-left: 1600px;
+    margin-top: -40px;
+}
+
+.Submeter-Projeto button{
+background-color: #3477d4;
+border-radius: 50px;
+height: 40px;
+border: none;
+width: 190px;
+cursor: pointer;
+}
+.Submeter-Projeto button:hover{
+    background-color: #0b5ed1;
+}
+.Submeter-Cor{
+    color: white;
+
+}
+
+.Submeter-Cor:hover{
+    color: rgb(220, 215, 215);
+
+}
+.traco-logout{
+    display: flex;
+    height: 1px;
+    border: 1px solid white;
+}
+
+
