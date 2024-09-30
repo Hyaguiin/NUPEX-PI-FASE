@@ -2,34 +2,32 @@
 
 * {
     font-family: "Overpass", sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f4f7; /* Cor de fundo similar à de registro */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+.ubuntu-bold {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
+
+.login-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: #f0f4f7;
+}
+
 .logoFacisa{
     width: 35px;
     height: 35px;
     margin-top: 5px ;
     padding: 10px;
 }
-h2 {
-    font-family: "Ubuntu", sans-serif;
-    color: #2e3a59;
+.container-name{
+    display: flex;
 }
-.ubuntu-bold {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
+
 
 .cor {
     color: #3870C1;
@@ -39,72 +37,66 @@ h2 {
     margin-bottom: 20px;
     text-transform: uppercase;
 }
-.container-name{
-    display: flex;
-}
 
-
-.container {
-    display: flex;
-    margin-top: -8px;
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 4px; /* Bordas mais suaves */
-}
-
-/* Estilo da seção de login à esquerda */
-.login-section {
+.form-container {
     width: 50%;
     padding: 40px;
-    margin-top: 150px;
-    margin-right: 150px;
+    background-color: white;
+    border-radius: 4px;
 }
 
-.login-section img {
-    width: 35px; /* Tamanho da logo para ficar consistente */
-    margin-top: 5px;
-}
-
-.login-section h1 {
+.logo h1 {
     font-size: 24px;
     color: #2e3a59;
-    margin-bottom: 20px;
 }
 
-.login-section p {
+h2 {
+    font-family: "Ubuntu", sans-serif;
+    color: #2e3a59;
+}
+
+p {
     font-size: 16px;
     margin-bottom: 20px;
 }
+.link{
+    text-decoration: none;
+    color: #007bff;
+}
 
-.login-section form {
+
+.input-group-senha {
     display: flex;
-    flex-direction: column;
+    width: 820px;
+    justify-content: space-between;
+    gap: 20px; /* Espaço entre os campos */
+}
+#email{
+    width: 800px;
 }
 
-/* Estilo dos campos de entrada */
+.input-group-nome .input-group:first-child {
+    margin-right: 20px; /* Espaço entre Nome e Sobrenome */
+}
+
+.input-group-senha .input-group:first-child {
+    margin-right: 20px; /* Espaço entre Senha e Confirmar Senha */
+}
+
 .input-group {
+    flex: 1;
     margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #2e3a59; /* Cor consistente */
-    font-size: 16px; /* Tamanho igual ao de registro */
 }
 
 .input-group input {
     width: 100%;
-    padding: 15px; /* Padding consistente com o registro */
+    padding: 15px;
     border: 1.05px solid #e7e6e6;
     border-radius: 8px;
-    font-size: 16px; /* Tamanho igual ao de registro */
+    font-size: 16px;
     transition: border-color 0.3s ease;
-    outline: none;
     color: #333;
+    outline: none;
 }
 
 .input-group input:focus {
@@ -113,27 +105,36 @@ h2 {
     box-shadow: 0 0 5px rgba(134, 194, 236, 0.5);
 }
 
-/* Opção "Salvar Dispositivo" */
-.options {
+.radio-group {
+    display: flex;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #2e3a59;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-group label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-group input {
+    margin-right: 5px;
+}
+
+.terms {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
+.terms input {
+    margin-right: 5px;
 }
 
-.checkbox-container input {
-    margin-right: 8px;
-    margin: 3px;
-   
-}
-
-/* Botão de login */
-.login-btn {
+.btn-primary {
     display: inline-block;
     width: 96%;
     padding: 15px;
@@ -145,96 +146,24 @@ h2 {
     cursor: pointer;
 }
 
-.login-btn:hover {
+.btn-primary:hover {
     background-color: #0056b3;
 }
 
-/* Opção de criar conta */
-.signup-option {
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-.signup-option a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.signup-option a:hover {
-    text-decoration: underline;
-}
-
-/* Estilo da seção informativa à direita */
-.info-section {
-    width: 70%;
-    background-color: #1d2f7d;
-    color: white;
+.image-container {
+    width: 50%;
+    height: 100%;
+    margin-top: -8px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 40px;
-    position: relative;
+    justify-content: center;
+    background-color: #1d427d;
 }
 
-.info-section h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.info-section p {
-    text-align: center;
-    line-height: 1.6;
-}
-
-/* Estilo das imagens sobrepostas */
-.icones img {
-    width: 100px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .login-section, .info-section {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .login-section h1 {
-        font-size: 20px;
-    }
-
-    .login-section p {
-        font-size: 14px;
-    }
-
-    .input-group input {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .login-btn {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .signup-option {
-        font-size: 12px;
-    }
-
-    .info-section {
-        padding: 20px;
-        text-align: center;
-    }
-
-    .info-section h2 {
-        font-size: 18px;
-    }
-
-    .info-section p {
-        font-size: 12px;
-    }
+.image-container img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
 }

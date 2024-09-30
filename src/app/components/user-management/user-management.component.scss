@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    font-family: "Overpass", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden !important; /* Forçar a remoção da rolagem */
+}
+
+.ubuntu-bold {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.logoFacisa {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+}
+
+.container-name {
+    display: flex;
+    margin-right: 300px;
+    width: 100%;
+    height: 50px;
+    margin-top: -9px;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    overflow: hidden; /* Garantir que o conteúdo não force a rolagem */
+}
+
+.traco {
+    display: flex;
+    height: 7px;
+    margin-top: 5px;
+    background-color: rgb(0, 94, 255);
+    width: 100%;
+    border-bottom: 10px solid #3870C1;
+}
+
+.projeto-cor {
+    color: #3870C1;
+}
+
+.Projetos {
+    margin-left: 160px;
+    margin-top: 50px;
+    font-family: Raleway;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 35.22px;
+}
+
+.aces {
+    margin-left: auto; 
+}
+
+.cor {
+    color: #3870C1;
+    font-weight: bold;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 24px;
+    color: #2e3a59;
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: "Ubuntu", sans-serif;
+    color: #2e3a59;
+}
+
+.painel {
+    display: grid;
+    margin-top: -905px;
+    border: solid #183474 1px;
+    background-color: #183474;
+    border-radius: 10px;
+    width: 6%; 
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    height: 93vh;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Para evitar que o conteúdo interno cause scroll, pq tava com scrollzao */
+}
+
+.painel:hover {
+    width: 15%; 
+}
+
+.painel-content {
+    margin-left: 15%;
+    margin-top: 110px;
+}
+
+.painel-content-perfil {
+    margin-top: -50px;
+    display: flex;
+    height: 210px;
+}
+
+.painel-content-logout {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    height: 210px;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    margin-top: 70px;
+    margin-left: 20px;
+}
+
+#foto {
+    margin: 5px;
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.nome {
+    display: none; 
+    color: white; 
+    margin-left: 10px; 
+}
+
+.painel:hover .nome {
+    display: block; /* pro efeito bonitinho */
+    transition: opacity 0.3s ease;
+}
+
+.dashboard-icon {
+    display: grid;
+    margin-top: 25px;
+    margin-left: 10px;
+    grid-template-columns: repeat(2, 1fr); /* ps colunass */
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 5px;
+    width: 35px;
+    height: 35px;
+}
+
+.dashboard-content {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-name {
+    display: none; 
+    color: white;
+    margin-left: 70px;
+    margin-top: -25px;
+}
+
+.painel:hover .dashboard-name,
+.painel-content:hover .dashboard-name {
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.block {
+    border: solid 3px white;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-icon:hover .block {
+    background-color: #0056b3;
+}
+
+/*PARTE DO USUARIO GERENCIAMENTO!! */
+.user-icon {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-top: -50px; 
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-name {
+    display: none;
+    color: white;
+    margin-left: 15px;
+    margin-top: -100px;
+}
+
+.painel:hover .user-name {
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.user-icon i {
+    color: white; 
+    font-size: 20px; 
+    margin-left: 15px;
+    margin-top: -100px;
+}
+
+.gerenciamentoProjeto {
+    margin-top: -90px;
+}
+
+.Submeter-Projeto {
+    margin-left: 1600px;
+    margin-top: -40px;
+}
+
+.Submeter-Projeto button {
+    background-color: #3477d4;
+    border-radius: 50px;
+    height: 40px;
+    border: none;
+    width: 190px;
+    cursor: pointer;
+}
+
+.Submeter-Projeto button:hover {
+    background-color: #0b5ed1;
+}
+
+.Submeter-Cor {
+    color: white;
+}
+
+.Submeter-Cor:hover {
+    color: rgb(220, 215, 215);
+}
+
+.traco-logout {
+    display: flex;
+    height: 1px;
+    border: 1px solid white;
+}
+
+.menu-projetos {
+    display: flex;
+    border: solid black 0.5px;
+    width: 1600px;
+    height: 785px;
+    margin-left: 150px;
+    margin-top: 30px;
+    gap: 0px;
+    opacity: 0.5;
+    max-height: 100vh; 
+    overflow: hidden;
+}
+
+.menu-projetos-describe {
+    display: flex;
+    border: solid black 0.5px;
+    width: 1600px;
+    padding: 10px;
+    height: 45px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.content-describe {
+    margin-right: 300px;
+}
