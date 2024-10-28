@@ -1,0 +1,14 @@
+.app-management {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;  /* Preencher a largura total da tela */
+    height: 100vh; /* Preencher a altura total da tela */
+    overflow: hidden; /* Evitar scroll desnecessário */
+}
+
+html, body {
+    margin: 0;  /* Remove margem do body */
+    height: 100%; /* Garante que o body tenha 100% de altura */
+    overflow: hidden; /* Remove a rolagem da página */
+}

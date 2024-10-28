@@ -8,6 +8,7 @@
 }
 
 html, body {
+    
     height: 100%;
     overflow: hidden !important; /* Forçar a remoção da rolagem */
 }
@@ -86,17 +87,20 @@ h2 {
 
 .painel {
     display: grid;
-    margin-top: -905px;
-    border: solid #183474 1px;
+    margin-top: -905px; /* Ajuste conforme necessário */
+    border: solid #183474 1px; /* Borda padrão */
+    border-left: none; /* Remove a borda esquerda */
     background-color: #183474;
-    border-radius: 10px;
+    border-radius: 0 10px 10px 0; /* Apenas o lado direito terá borda arredondada */
     width: 6%; 
+    height: 100vh; /* Preenche a altura total da tela */
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    height: 93vh;
     transition: width 0.3s ease;
     position: relative;
-    overflow: hidden; /* Para evitar que o conteúdo interno cause scroll, pq tava com scrollzao */
+    overflow: hidden; /* Para evitar que o conteúdo interno cause scroll */
 }
+
+
 
 .painel:hover {
     width: 15%; 
