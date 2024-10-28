@@ -18,10 +18,10 @@
   background-color: #ffffff;
   padding: 20px;
   width: 100%;
-  height: 80% ;
+  height: 80%;
   max-width: 87%; /* Ajuste conforme necessário */
   z-index: 10; /* Z-index maior para que o formulário fique em cima */
-    border: solid 0.2px;
+  border: solid 0.2px;
 }
 
 h2 {
@@ -43,18 +43,36 @@ h4 {
   margin-bottom: 15px;
 }
 
+/* Estilo para campos de entrada */
+.input-field {
+  width: 100%; /* Faz os campos ocuparem 100% da largura do container */
+  padding: 15px; /* Padding interno para os campos */
+  border: 1px solid #e7e6e6; /* Borda do campo */
+  border-radius: 8px; /* Bordas arredondadas */
+  font-size: 16px; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+  outline: none; /* Remove o contorno padrão do navegador */
+  transition: border-color 0.3s ease; /* Transição para mudança de cor */
+}
+
+.input-field:focus {
+  border-color: #007bff; /* Cor da borda ao focar */
+  background-color: #f1f8ff; /* Cor de fundo ao focar */
+}
+
+/* Estilo do botão */
 .btn-primary {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  width: 100%; /* Botão ocupa 100% da largura */
+  padding: 10px; /* Estilo do padding para o botão */
+  background-color: #007bff; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  border: none; /* Remove borda padrão */
+  border-radius: 8px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor para pointer ao passar o mouse */
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
 }
 
 /* Flexbox para os containers */
@@ -89,3 +107,33 @@ h4 {
 .hidden {
   display: none; /* Classe para ocultar o menu */
 }
+
+.projeto, .periocidade, .modalidade{
+    display: flex;
+}
+
+.text-font{
+    font-size: large;
+    font-weight: bold;
+}
+#projectTitle{
+    width: 30%;
+}
+
+.botao{
+    border-radius: 8px;
+    background-color: #0056b3;
+    border: none;
+    height: 52px;
+    width: 170px;
+    float: right;
+    cursor: pointer;
+    margin-top: -10px;
+}
+.botao h4{
+    color: white;
+    text-align: center;
+    line-height: 10px;
+    font-size: medium;
+}
+

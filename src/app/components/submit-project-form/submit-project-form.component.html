@@ -1,81 +1,95 @@
 <div class="submit-project-form">
-    <h2>Submeter Projeto</h2>
     <form (ngSubmit)="submit()">
-      <div class="form-group">
-        <label for="projectTitle">Título do Projeto</label>
-        <input type="text" id="projectTitle" [(ngModel)]="projectTitle" name="projectTitle" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="projectType">Tipo de Projeto</label>
-        <select id="projectType" [(ngModel)]="projectType" name="projectType" class="form-control">
-          <option value="EXTENSAO">Extensão</option>
-          <option value="PESQUISA">Pesquisa</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="periodicity">Periodicidade</label>
-        <select id="periodicity" [(ngModel)]="periodicity" name="periodicity" class="form-control">
-          <option value="SEMESTRAL">Semestral</option>
-          <option value="ANUAL">Anual</option>
-          <option value="BIENAL">Bienal</option>
-          <option value="TRIENAL">Trienal</option>
-        </select>
-      </div>
-  
-      <!-- Container para os campos do coordenador e colaborador lado a lado -->
-      <div class="container-row">
-        <div class="coordinator-collaborator-container">
-          <h3>Professor Proponente</h3>
-  
-          <div class="container-row">
-            <div class="coordinator-container">
-              <h4>Coordenador do Projeto</h4>
-              <div class="form-group">
-                <label for="coordinatorName">Nome do Coordenador</label>
-                <input type="text" id="coordinatorName" [(ngModel)]="coordinatorName" name="coordinatorName" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="coordinatorEmail">Email do Coordenador</label>
-                <input type="email" id="coordinatorEmail" [(ngModel)]="coordinatorEmail" name="coordinatorEmail" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="coordinatorCourse">Curso do Coordenador</label>
-                <select id="coordinatorCourse" [(ngModel)]="coordinatorCourse" name="coordinatorCourse" class="form-control">
-                  <!-- Options for courses should be populated here -->
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="coordinatorPhone">Telefone do Coordenador</label>
-                <input type="text" id="coordinatorPhone" [(ngModel)]="coordinatorPhone" name="coordinatorPhone" class="form-control" />
-              </div>
+        <!-- Seção de Projeto -->
+        <div class="form-group">
+            <div class="projeto">
+                <label class="text-font">Projeto</label>
+                <div class="radio-group">
+                    <label><input type="radio" [(ngModel)]="projectType" name="projectType" value="EXTENSAO" /> Extensão</label>
+                    <label><input type="radio" [(ngModel)]="projectType" name="projectType" value="PESQUISA" /> Pesquisa</label>
+                </div>
             </div>
-  
-            <div class="collaborator-container">
-              <h4>Colaborador</h4>
-              <div class="form-group">
-                <label for="collaboratorName">Nome do Colaborador</label>
-                <input type="text" id="collaboratorName" [(ngModel)]="collaboratorName" name="collaboratorName" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="collaboratorEmail">Email do Colaborador</label>
-                <input type="email" id="collaboratorEmail" [(ngModel)]="collaboratorEmail" name="collaboratorEmail" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="studentCourse">Curso do Aluno</label>
-                <select id="studentCourse" [(ngModel)]="studentCourse" name="studentCourse" class="form-control">
-                  <!-- Options for courses should be populated here -->
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="studentPhone">Telefone do Aluno</label>
-                <input type="text" id="studentPhone" [(ngModel)]="studentPhone" name="studentPhone" class="form-control" />
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Submeter</button>
+
+        <!-- Seção de Modalidade -->
+        <div class="form-group">
+            <label class="text-font">Modalidade</label>
+            <div class="radio-group">
+                <label><input type="radio" [(ngModel)]="modality" name="modality" value="PROFICE" /> PROFICE</label>
+                <label><input type="radio" [(ngModel)]="modality" name="modality" value="PROVIC" /> PROVIC</label>
+            </div>
+        </div>
+
+        <!-- Seção de Periodicidade -->
+        <div class="form-group">
+            <label class="text-font">Periodicidade</label>
+            <div class="radio-group">
+                <label><input type="radio" [(ngModel)]="periodicity" name="periodicity" value="SEMESTRAL" /> Semestral</label>
+                <label><input type="radio" [(ngModel)]="periodicity" name="periodicity" value="ANUAL" /> Anual</label>
+                <label><input type="radio" [(ngModel)]="periodicity" name="periodicity" value="BIENAL" /> Bienal</label>
+                <label><input type="radio" [(ngModel)]="periodicity" name="periodicity" value="TRIENAL" /> Trienal</label>
+            </div>
+        </div>
+
+        <!-- Campos do Formulário -->
+        <div class="form-group">
+            <label for="projectTitle" class="text-font">Título do Projeto</label>
+            <input type="text" id="projectTitle" [(ngModel)]="projectTitle" name="projectTitle" class="form-control input-field" />
+        </div>
+
+        <div class="container-row">
+            <div class="coordinator-collaborator-container">
+                <h3>Professor Proponente</h3>
+                <div class="container-row">
+                    <div class="coordinator-container">
+                        <div class="form-group">
+                            <label for="coordinatorName">Professor Coordenador do projeto</label>
+                            <select id="coordinatorName" [(ngModel)]="coordinatorName" name="coordinatorName" class="form-control input-field">
+                                <option *ngFor="let coordinator of coordinatorOptions" [value]="coordinator">{{ coordinator }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="coordinatorEmail">Email do Coordenador</label>
+                            <input type="email" id="coordinatorEmail" [(ngModel)]="coordinatorEmail" name="coordinatorEmail" class="form-control input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label for="coordinatorCourse">Curso do Coordenador</label>
+                            <select id="coordinatorCourse" [(ngModel)]="coordinatorCourse" name="coordinatorCourse" class="form-control input-field">
+                                <option *ngFor="let course of courses" [value]="course">{{ course }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="coordinatorPhone">Telefone do Coordenador</label>
+                            <input type="text" id="coordinatorPhone" [(ngModel)]="coordinatorPhone" name="coordinatorPhone" class="form-control input-field" />
+                        </div>
+                    </div>
+
+                    <div class="collaborator-container">
+                        <div class="form-group">
+                            <label for="collaboratorName">Professor Colaborador</label>
+                            <select id="collaboratorName" [(ngModel)]="collaboratorName" name="collaboratorName" class="form-control input-field">
+                                <option *ngFor="let collaborator of collaboratorOptions" [value]="collaborator">{{ collaborator }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="collaboratorEmail">Email do Colaborador</label>
+                            <input type="email" id="collaboratorEmail" [(ngModel)]="collaboratorEmail" name="collaboratorEmail" class="form-control input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label for="collaboratorCourse">Curso do Colaborador</label>
+                            <select id="collaboratorCourse" [(ngModel)]="collaboratorCourse" name="collaboratorCourse" class="form-control input-field">
+                                <option *ngFor="let course of courses" [value]="course">{{ course }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="collaboratorPhone">Telefone do Colaborador</label>
+                            <input type="text" id="collaboratorPhone" [(ngModel)]="collaboratorPhone" name="collaboratorPhone" class="form-control input-field" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="botao"><h4>Próximo</h4></button>
     </form>
-  </div>
-  
+</div>

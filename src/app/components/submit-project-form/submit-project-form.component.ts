@@ -11,36 +11,35 @@ export class SubmitProjectFormComponent {
   periodicity: string = '';
   coordinatorName: string = '';
   coordinatorEmail: string = '';
-  collaboratorName: string = '';
-  collaboratorEmail: string = '';
   coordinatorCourse: string = '';
   coordinatorPhone: string = '';
-  studentCourse: string = '';
-  studentPhone: string = '';
+  collaboratorName: string = '';
+  collaboratorEmail: string = '';
+  collaboratorCourse: string = '';
+  collaboratorPhone: string = '';
+  modality: string = '';
 
-  // Array de cursos
-  courses: string[] = [
-    'Curso A',
-    'Curso B',
-    'Curso C',
-    'Curso D'
-  ];
+  // Listas de opções
+  courses: string[] = ['Curso A', 'Curso B', 'Curso C', 'Curso D'];
+  coordinatorOptions: string[] = ['Professor 1', 'Professor 2', 'Professor 3'];
+  collaboratorOptions: string[] = ['Professor A', 'Professor B', 'Professor C'];
 
   submit() {
-    // Lógica para submissão do formulário
-    console.log({
+    const formData = {
       projectTitle: this.projectTitle,
       projectType: this.projectType,
       periodicity: this.periodicity,
       coordinatorName: this.coordinatorName,
       coordinatorEmail: this.coordinatorEmail,
-      collaboratorName: this.collaboratorName,
-      collaboratorEmail: this.collaboratorEmail,
       coordinatorCourse: this.coordinatorCourse,
       coordinatorPhone: this.coordinatorPhone,
-      studentCourse: this.studentCourse,
-      studentPhone: this.studentPhone,
-    });
-    // Aqui você pode adicionar a lógica para enviar os dados para o servidor ou realizar outras ações.
+      collaboratorName: this.collaboratorName,
+      collaboratorEmail: this.collaboratorEmail,
+      collaboratorCourse: this.collaboratorCourse,
+      collaboratorPhone: this.collaboratorPhone,
+      modality: this.modality
+    };
+
+    console.log('Form Data:', formData);
   }
 }
