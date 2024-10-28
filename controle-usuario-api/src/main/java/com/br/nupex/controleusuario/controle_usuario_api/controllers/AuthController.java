@@ -1,5 +1,8 @@
 package com.br.nupex.controleusuario.controle_usuario_api.controllers;
 
+import java.util.Optional;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,9 +17,6 @@ import com.br.nupex.controleusuario.controle_usuario_api.dto.RegisterRequestDTO;
 import com.br.nupex.controleusuario.controle_usuario_api.dto.ResponseDTO;
 import com.br.nupex.controleusuario.controle_usuario_api.infra.security.TokenService;
 import com.br.nupex.controleusuario.controle_usuario_api.repositories.UserRepository;
-
-import java.util.Optional;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/auth")

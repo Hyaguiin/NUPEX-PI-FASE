@@ -2,9 +2,13 @@
   <div class="form-container">
     <div class="logo">
       <div class="container-name">
-      <img class="logoFacisa" src="https://upload.wikimedia.org/wikipedia/commons/6/66/Unifacisabasquete.png" alt="Logo Facisa">
-      <h1>Gestão <span class="cor">Nupex</span></h1>
-  </div>
+        <img
+          class="logoFacisa"
+          src="https://upload.wikimedia.org/wikipedia/commons/6/66/Unifacisabasquete.png"
+          alt="Logo Facisa"
+        />
+        <h1>Gestão <span class="cor">Nupex</span></h1>
+      </div>
     </div>
     <h2>Bem vindo ao Nupex!</h2>
     <p>
@@ -12,36 +16,56 @@
       plataforma completa para coordenadores e professores.
     </p>
 
-    <form>
-      
-        
-
-      <div class="input-group" id="email">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="input-group">
         <label for="email">Seu Email</label>
-        <input id="email" type="email" placeholder="Email@mail.com" />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email@mail.com"
+          [(ngModel)]="email"
+          required
+        />
       </div>
 
       <div class="input-group-senha">
-          <div class="input-group">
-              <label for="senha">Senha</label>
-              <input id="senha" type="password" placeholder="Sua Senha" />
-          </div>
-      
+        <div class="input-group">
+          <label for="senha">Senha</label>
+          <input
+            id="senha"
+            name="password"
+            type="password"
+            placeholder="Sua Senha"
+            [(ngModel)]="password"
+            required
+          />
+        </div>
       </div>
-      
 
       <div class="terms">
         <input type="checkbox" id="termos" />
-        <label for="termos">Lembrar dispositivo<a href="#"  class="link"></a></label>
+        <label for="termos"
+          >Lembrar dispositivo<a href="#" class="link"></a
+        ></label>
       </div>
 
-      <button type="submit" class="btn-primary">Entrar</button>
+      <button
+        type="submit"
+        class="btn-primary"
+        [disabled]="!loginForm.form.valid"
+      >
+        Entrar
+      </button>
 
       <p>Ainda não é registrado? <a href="#" class="link">Crie uma conta</a></p>
     </form>
   </div>
 
   <div class="image-container">
-    <img src="https://www.virtus.ufcg.edu.br/wp-content/uploads/2024/05/Noticia_UNIFACISA.png" alt="Exemplo Nupex" />
+    <img
+      src="https://www.virtus.ufcg.edu.br/wp-content/uploads/2024/05/Noticia_UNIFACISA.png"
+      alt="Exemplo Nupex"
+    />
   </div>
 </div>
