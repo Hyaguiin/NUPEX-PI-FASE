@@ -21,42 +21,60 @@
           <option value="TRIENAL">Trienal</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="coordinatorName">Nome do Coordenador</label>
-        <input type="text" id="coordinatorName" [(ngModel)]="coordinatorName" name="coordinatorName" class="form-control" />
+  
+      <!-- Container para os campos do coordenador e colaborador lado a lado -->
+      <div class="container-row">
+        <div class="coordinator-collaborator-container">
+          <h3>Professor Proponente</h3>
+  
+          <div class="container-row">
+            <div class="coordinator-container">
+              <h4>Coordenador do Projeto</h4>
+              <div class="form-group">
+                <label for="coordinatorName">Nome do Coordenador</label>
+                <input type="text" id="coordinatorName" [(ngModel)]="coordinatorName" name="coordinatorName" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="coordinatorEmail">Email do Coordenador</label>
+                <input type="email" id="coordinatorEmail" [(ngModel)]="coordinatorEmail" name="coordinatorEmail" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="coordinatorCourse">Curso do Coordenador</label>
+                <select id="coordinatorCourse" [(ngModel)]="coordinatorCourse" name="coordinatorCourse" class="form-control">
+                  <!-- Options for courses should be populated here -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="coordinatorPhone">Telefone do Coordenador</label>
+                <input type="text" id="coordinatorPhone" [(ngModel)]="coordinatorPhone" name="coordinatorPhone" class="form-control" />
+              </div>
+            </div>
+  
+            <div class="collaborator-container">
+              <h4>Colaborador</h4>
+              <div class="form-group">
+                <label for="collaboratorName">Nome do Colaborador</label>
+                <input type="text" id="collaboratorName" [(ngModel)]="collaboratorName" name="collaboratorName" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="collaboratorEmail">Email do Colaborador</label>
+                <input type="email" id="collaboratorEmail" [(ngModel)]="collaboratorEmail" name="collaboratorEmail" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="studentCourse">Curso do Aluno</label>
+                <select id="studentCourse" [(ngModel)]="studentCourse" name="studentCourse" class="form-control">
+                  <!-- Options for courses should be populated here -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="studentPhone">Telefone do Aluno</label>
+                <input type="text" id="studentPhone" [(ngModel)]="studentPhone" name="studentPhone" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="coordinatorEmail">Email do Coordenador</label>
-        <input type="email" id="coordinatorEmail" [(ngModel)]="coordinatorEmail" name="coordinatorEmail" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="collaboratorName">Nome do Colaborador</label>
-        <input type="text" id="collaboratorName" [(ngModel)]="collaboratorName" name="collaboratorName" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="collaboratorEmail">Email do Colaborador</label>
-        <input type="email" id="collaboratorEmail" [(ngModel)]="collaboratorEmail" name="collaboratorEmail" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="coordinatorCourse">Curso do Coordenador</label>
-        <select id="coordinatorCourse" [(ngModel)]="coordinatorCourse" name="coordinatorCourse" class="form-control">
-          <!-- Options for courses should be populated here -->
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="coordinatorPhone">Telefone do Coordenador</label>
-        <input type="text" id="coordinatorPhone" [(ngModel)]="coordinatorPhone" name="coordinatorPhone" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="studentCourse">Curso do Aluno</label>
-        <select id="studentCourse" [(ngModel)]="studentCourse" name="studentCourse" class="form-control">
-          <!-- Options for courses should be populated here -->
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="studentPhone">Telefone do Aluno</label>
-        <input type="text" id="studentPhone" [(ngModel)]="studentPhone" name="studentPhone" class="form-control" />
-      </div>
+  
       <button type="submit" class="btn btn-primary">Submeter</button>
     </form>
   </div>

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+  font-family: "Overpass", sans-serif;
+  box-sizing: border-box; /* Para que o padding não afete as larguras */
+}
+
+.menu-projetos {
+  position: relative;
+  z-index: 1; /* Z-index menor para que o menu fique atrás */
+}
+
+.submit-project-form {
+  position: absolute; /* Para sobrepor o menu */
+  top: 57%;
+  left: 51%;
+  transform: translate(-50%, -50%); /* Centraliza o formulário */
+  background-color: #ffffff;
+  padding: 20px;
+  width: 100%;
+  height: 80% ;
+  max-width: 87%; /* Ajuste conforme necessário */
+  z-index: 10; /* Z-index maior para que o formulário fique em cima */
+    border: solid 0.2px;
+}
+
+h2 {
+  color: #2e3a59;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #2e3a59;
+  margin: 15px 0;
+}
+
+h4 {
+  color: #2e3a59;
+  margin: 10px 0; /* Ajusta o espaçamento dos subtítulos */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Flexbox para os containers */
+.container-row {
+  display: flex; /* Usar flexbox */
+  justify-content: space-between; /* Espaço entre os itens */
+  margin-bottom: 20px; /* Espaçamento abaixo dos containers */
+}
+
+.coordinator-collaborator-container {
+  display: flex; /* Usar flexbox para coordenador e colaborador */
+  flex-direction: column; /* Alinha os containers em coluna */
+  border: 1px solid #e7e6e6; /* Borda sutil */
+  border-radius: 4px; /* Bordas arredondadas */
+  padding: 10px; /* Padding interno */
+  background-color: #f9f9f9; /* Fundo levemente cinza */
+  width: 100%;
+  max-width: 100%;
+}
+
+.coordinator-container,
+.collaborator-container {
+  flex: 1; /* Cada container ocupa igual espaço */
+  margin-bottom: 15px; /* Espaçamento abaixo de cada seção */
+  padding: 10px; /* Padding interno */
+  background-color: #f9f9f9; /* Fundo branco para cada seção */
+  border-radius: 4px; /* Bordas arredondadas para as seções */
+  
+  border: none;
+}
+
+.hidden {
+  display: none; /* Classe para ocultar o menu */
+}
