@@ -2,42 +2,62 @@
   <div class="form-container">
     <div class="logo">
       <div class="container-name">
-      <img class="logoFacisa" src="https://upload.wikimedia.org/wikipedia/commons/6/66/Unifacisabasquete.png" alt="Logo Facisa">
-      <h1>Gestão <span class="cor">Nupex</span></h1>
-  </div>
+        <img
+          class="logoFacisa"
+          src="https://upload.wikimedia.org/wikipedia/commons/6/66/Unifacisabasquete.png"
+          alt="Logo Facisa"
+        />
+        <h1>Gestão <span class="cor">Nupex</span></h1>
+      </div>
     </div>
-    <h2>Bem vindo ao Nupex!</h2>
+    <h2>Bem-vindo ao Nupex!</h2>
     <p>
       Transforme a gestão dos seus projetos educacionais com o Nupex, a
       plataforma completa para coordenadores e professores.
     </p>
 
     <form>
-      
-        
-
       <div class="input-group" id="email">
         <label for="email">Seu Email</label>
-        <input id="email" type="email" placeholder="Email@mail.com" />
+        <input 
+          id="email" 
+          type="email" 
+          placeholder="Email@mail.com" 
+          [(ngModel)]="email" 
+          name="email" 
+          required 
+        />
       </div>
 
       <div class="input-group-senha">
-          <div class="input-group">
-              <label for="senha">Senha</label>
-              <input id="senha" type="password" placeholder="Sua Senha" />
-          </div>
-      
+        <div class="input-group">
+          <label for="senha">Senha</label>
+          <input 
+            id="senha" 
+            type="password" 
+            placeholder="Sua Senha" 
+            [(ngModel)]="senha" 
+            name="senha" 
+            required 
+          />
+        </div>
       </div>
-      
 
       <div class="terms">
-        <input type="checkbox" id="termos" />
-        <label for="termos">Lembrar dispositivo<a href="#"  class="link"></a></label>
+        <input 
+          type="checkbox" 
+          id="termos" 
+          [(ngModel)]="lembrarDispositivo" 
+          name="lembrarDispositivo" 
+        />
+        <label for="termos">Lembrar dispositivo</label>
       </div>
 
-      <button type="button" class="btn-primary" (click)="login()">Entrar</button>
+      <button type="button" class="btn-primary" (click)="login()">
+        Entrar
+      </button>
 
-
+      <p class="error-message" *ngIf="mensagemErro">{{ mensagemErro }}</p>
       <p>Ainda não é registrado? <a href="#" class="link">Crie uma conta</a></p>
     </form>
   </div>

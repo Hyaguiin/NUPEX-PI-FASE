@@ -1,18 +1,43 @@
 import { Component } from '@angular/core';
-import { RouterModule, Router } from '@angular/router'; // Importando RouterModule e Router
+import { Router } from '@angular/router';
+import { AuthServiceService } from '../../auth/auth-service.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterModule], // Importando RouterModule
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'] // Corrigido para styleUrls
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private router: Router) {} // Injetando Router
+  email: string = '';
+  senha: string = '';
+  mensagemErro: string = '';
+  lembrarDispositivo: boolean = false;
+
+  constructor(
+    private authService: AuthServiceService,
+    private router: Router
+  ) {}
 
   login() {
-    // Redirecionando para user-management
-    this.router.navigate(['/user-management']);
+    const credentials = { email: this.email, password: this.senha };
+    this.authService
+      .login(credentials.email, credentials.password, credentials)
+      .subscribe(
+        (response: { success: boolean }) => {
+          if (response.success) {
+            this.router.navigate(['/user-management']);
+          } else {
+            this.mensagemErro = 'Email ou senha incorretos.';
+          }
+        },
+        (error: any) => {
+          this.mensagemErro = 'Ocorreu um erro. Tente novamente mais tarde.';
+          console.error(error);
+        }
+      );
   }
 }
