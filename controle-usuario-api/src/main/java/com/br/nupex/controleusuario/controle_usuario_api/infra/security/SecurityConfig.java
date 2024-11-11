@@ -20,22 +20,24 @@ public class SecurityConfig {
 
     @Autowired
     private SecurityFilter securityFilter;
-
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(authorize -> authorize
+        http.csrf().disable()
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                .requestMatchers("/h2-console/**").permitAll()  
-                .requestMatchers(HttpMethod.GET, "/api/teachers/**").authenticated() // Acesso somente autenticado para GET
-                .requestMatchers(HttpMethod.POST, "/api/teachers/**").hasRole("ADMIN") // Somente ADMIN pode criar
-                .requestMatchers(HttpMethod.PUT, "/api/teachers/**").hasRole("ADMIN") // Somente ADMIN pode atualizar
-                .requestMatchers(HttpMethod.DELETE, "/api/teachers/**").hasRole("ADMIN") // Somente ADMIN pode deletar
+                .requestMatchers("/h2-console/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/teachers/**").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/teachers/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/teachers/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/teachers/**").hasRole("ADMIN")
                 .anyRequest().authenticated())
-            .headers(headers -> headers.frameOptions().sameOrigin()) 
-            .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
+                .headers(headers -> headers.frameOptions().sameOrigin())
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+                .cors();
+
         return http.build();
     }
 
@@ -48,4 +50,13 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
+
+    
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().and()  
+            .authorizeRequests()
+            .antMatchers("/**").permitAll() 
+            .anyRequest().authenticated();
+    }
+
 }

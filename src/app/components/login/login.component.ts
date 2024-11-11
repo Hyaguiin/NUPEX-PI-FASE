@@ -1,18 +1,38 @@
 import { Component } from '@angular/core';
-import { RouterModule, Router } from '@angular/router'; // Importando RouterModule e Router
-
+import { RouterModule, Router } from '@angular/router';
+import { AuthServiceService } from '../../auth/auth-service.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterModule], // Importando RouterModule
+  imports: [RouterModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'] // Corrigido para styleUrls
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private router: Router) {} // Injetando Router
+  credentials = { username: '', password: '' };
+  errorMessage: string = '';
+
+  constructor(
+    private authService: AuthServiceService,
+    private router: Router
+  ) {}
 
   login() {
-    // Redirecionando para user-management
-    this.router.navigate(['/user-management']);
+    if (!this.credentials.username || !this.credentials.password) {
+      this.errorMessage = 'Por favor, preencha todos os campos.';
+      return;
+    }
+
+    this.authService.login(this.credentials).subscribe({
+      next: () => {
+        this.router.navigate(['/user-management']);
+        this.errorMessage = '';
+      },
+      error: (err) => {
+        console.error('Erro de login:', err);
+        this.errorMessage = 'Credenciais inválidas ou erro no servidor.';
+      },
+    });
   }
 }
