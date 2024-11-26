@@ -52,4 +52,7 @@ export class AuthServiceService {
   isAdmin(): boolean {
     return this.getRoles().includes('ROLE_ADMIN');
   }
+  isCoordinator(): boolean {
+    return this.getRoles().includes('ROLE_COORDINATOR');
+  }
 }

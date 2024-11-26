@@ -1,13 +1,8 @@
 package com.br.nupex.controleusuario.controle_usuario_api.controllers;
 
-import com.br.nupex.controleusuario.controle_usuario_api.domain.user.User;
-import com.br.nupex.controleusuario.controle_usuario_api.dto.LoginRequestDTO;
-import com.br.nupex.controleusuario.controle_usuario_api.dto.RegisterRequestDTO;
-import com.br.nupex.controleusuario.controle_usuario_api.dto.ResponseDTO;
-import com.br.nupex.controleusuario.controle_usuario_api.infra.security.TokenService;
-import com.br.nupex.controleusuario.controle_usuario_api.repositories.UserRepository;
 import java.util.Optional;
 import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,6 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.br.nupex.controleusuario.controle_usuario_api.domain.user.User;
+import com.br.nupex.controleusuario.controle_usuario_api.dto.LoginRequestDTO;
+import com.br.nupex.controleusuario.controle_usuario_api.dto.RegisterRequestDTO;
+import com.br.nupex.controleusuario.controle_usuario_api.dto.ResponseDTO;
+import com.br.nupex.controleusuario.controle_usuario_api.infra.security.TokenService;
+import com.br.nupex.controleusuario.controle_usuario_api.repositories.UserRepository;
 
 @RestController
 @RequestMapping("/auth")
@@ -54,6 +56,8 @@ public class AuthController {
 
         if (body.email().equals("admin@domain.com")) {
             newUser.setRoles(Set.of("ROLE_USER", "ROLE_ADMIN"));
+        } else if (body.email().contains("coordenador")) {
+            newUser.setRoles(Set.of("ROLE_USER", "ROLE_COORDINATOR"));
         } else {
             newUser.setRoles(Set.of("ROLE_USER"));
         }

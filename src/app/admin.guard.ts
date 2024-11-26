@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthServiceService } from './auth/auth-service.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+
+@Injectable({ providedIn: 'root' })
 export class AdminGuard implements CanActivate {
   constructor(
     private authService: AuthServiceService,
@@ -12,12 +11,12 @@ export class AdminGuard implements CanActivate {
   ) {}
 
   canActivate(): boolean {
-    const token = this.authService.getToken();
-    if (token) {
+    if (this.authService.isCoordinator() || this.authService.isAdmin()) {
       return true;
     } else {
       this.router.navigate(['/login']);
       return false;
     }
   }
+  
 }

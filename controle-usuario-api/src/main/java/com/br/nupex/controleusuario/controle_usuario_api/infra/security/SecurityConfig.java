@@ -20,20 +20,21 @@ public class SecurityConfig {
 
     @Autowired
     private SecurityFilter securityFilter;
-    
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http
+                .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/register").permitAll() // Permite acesso sem autenticação
                 .requestMatchers("/h2-console/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/teachers/**").authenticated()
-                .requestMatchers(HttpMethod.POST, "/api/teachers/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT, "/api/teachers/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.GET, "/api/teachers/**").hasAnyRole("ADMIN", "COORDINATOR", "USER")
+                .requestMatchers(HttpMethod.POST, "/api/teachers/**").hasAnyRole("ADMIN", "COORDINATOR")
+                .requestMatchers(HttpMethod.PUT, "/api/teachers/**").hasAnyRole("ADMIN", "COORDINATOR")
                 .requestMatchers(HttpMethod.DELETE, "/api/teachers/**").hasRole("ADMIN")
-                .anyRequest().authenticated())
+                .anyRequest().authenticated()
+                )
                 .headers(headers -> headers.frameOptions().sameOrigin())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .cors();
@@ -50,13 +51,4 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
-    
-    protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and()  
-            .authorizeRequests()
-            .antMatchers("/**").permitAll() 
-            .anyRequest().authenticated();
-    }
-
 }
